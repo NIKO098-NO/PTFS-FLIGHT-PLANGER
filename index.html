@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic PTFS Flight Planning App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Dynamic PTFS Flight Planning App</h1>
+
+    <button onclick="newFlight()">New Flight Plan</button>
+    <select id="savedFlights" onchange="loadFlight()">
+        <option value="">Load Saved Flight</option>
+    </select>
+    <button onclick="saveFlight()">Save Flight Plan</button>
+
+    <section id="top-header">
+        <details open>
+            <summary>Top Header</summary>
+            <label>Airport / Aerodrome (ICAO): <input type="text" id="airport"></label>
+            <label>Callsign / Flight No: <input type="text" id="callsign"></label>
+            <label>Stand / Gate: <input type="text" id="stand"></label>
+            <label>Date / Zulu: <input type="text" id="date"></label>
+            <label>ATIS Info (Alpha/Bravo/Charlie) — Time: <input type="text" id="atis"></label>
+        </details>
+    </section>
+
+    <section id="clearance">
+        <details>
+            <summary>Clearance Delivery / Flight Plan</summary>
+            <label>Clearance Delivery Contact: <input type="text" id="clearanceContact"></label>
+            <label>Requested Altitude: <input type="text" id="altitude"></label>
+            <label>Route / SID / STAR: <input type="text" id="route"></label>
+            <label>Departure Runway: <input type="text" id="departureRunway"></label>
+            <label>Expected Takeoff Time (UTC): <input type="text" id="takeoffTime"></label>
+            <label>Departure Frequency: <input type="text" id="departureFreq"></label>
+            <label>Squawk / Transponder Code: <input type="text" id="squawk"></label>
+        </details>
+    </section>
+
+    <section id="taxi">
+        <details>
+            <summary>Taxi & Pre-Takeoff</summary>
+            <label>Taxi Route to Runway: <input type="text" id="taxiRoute"></label>
+            <label>Taxi Clearance: <input type="text" id="taxiClearance"></label>
+            <label>Hold Short / Line Up Instructions: <input type="text" id="holdShort"></label>
+            <label>Flaps / Trim / Autopilot Settings: <input type="text" id="settings"></label>
+        </details>
+    </section>
+
+    <section id="takeoff">
+        <details>
+            <summary>Takeoff / Departure</summary>
+            <label>Runway Heading: <input type="text" id="runwayHeading"></label>
+            <label>Initial Climb Speed / Vx / Vy: <input type="text" id="climbSpeeds"></label>
+            <label>Departure Procedures / Restrictions: <input type="text" id="departureProc"></label>
+        </details>
+    </section>
+
+    <section id="enroute">
+        <details>
+            <summary>Enroute</summary>
+            <label>Waypoints / Airway Route: <input type="text" id="waypoints"></label>
+            <label>Planned Altitude: <input type="text" id="plannedAlt"></label>
+            <label>Fuel Burn Estimates (lbs): <input type="text" id="fuelBurn"></label>
+            <label>ETAs at Waypoints: <input type="text" id="eta"></label>
+        </details>
+    </section>
+
+    <section id="arrival">
+        <details>
+            <summary>Arrival / Approach</summary>
+            <label>Destination Airport (ICAO): <input type="text" id="destAirport"></label>
+            <label>Expected Approach Type: <input type="text" id="approachType"></label>
+            <label>Runway / Landing Notes: <input type="text" id="landingNotes"></label>
+            <label>ATIS Info — Time: <input type="text" id="arrivalAtis"></label>
+            <label>Frequency: <input type="text" id="arrivalFreq"></label>
+        </details>
+    </section>
+
+    <section id="alternate">
+        <details>
+            <summary>Alternate Airport</summary>
+            <label>Alternate Airport ICAO: <input type="text" id="altAirport"></label>
+            <label>Reason / Conditions: <input type="text" id="altReason"></label>
+        </details>
+    </section>
+
+    <section id="emergency">
+        <details>
+            <summary>Emergency & Checklist Notes</summary>
+            <label>V-speeds / Minimums: <input type="text" id="vSpeeds"></label>
+            <label>Emergency Frequencies: <input type="text" id="emergencyFreq"></label>
+            <label>Fuel Reserve / Diversion Plan: <input type="text" id="diversionPlan"></label>
+            <label>Special Instructions / Remarks: <input type="text" id="remarks"></label>
+        </details>
+    </section>
+
+    <button onclick="printFlightPlan()">Print Flight Plan</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
